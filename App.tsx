@@ -1,6 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { values } from "mobx";
+import React, { useEffect, useState } from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { store } from "./store";
 
 //Screens
 import LoginScreen from './screens/LoginScreen';
@@ -16,19 +18,37 @@ import GameLeaderBoardScreen from './screens/GameLeaderBoardScreen';
 import GameScoreScreen from './screens/GameScoreScreen';
 
 export default function App() {
-	return (
-		<View style={styles.container}>
-			<Text>Appen</Text>
-			<StatusBar style='auto' />
-		</View>
-	);
+  useEffect(() => {
+    setLocalStore(store);
+  }, []);
+
+  const [id, setId] = useState(0);
+  const [localStore, setLocalStore] = useState(store);
+
+  return (
+    <View style={styles.container}>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+      <Button
+        title="Hello world"
+        onPress={() => {
+          setId(id + 1);
+          store.addTodo(id, "hello");
+        }}
+      />
+
+      {values(localStore.todos).map((todo: any) => (
+        <Text>{todo.name}</Text>
+      ))}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

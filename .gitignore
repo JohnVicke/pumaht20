@@ -22,7 +22,7 @@ DerivedData
 *.xcuserstate
 
 # Expo
-./expo
+.expo
 
 # Android/IntelliJ
 #

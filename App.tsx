@@ -4,6 +4,19 @@ import React, { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { store } from "./store";
 
+//Screens
+import LoginScreen from './screens/LoginScreen';
+import EnterPinScreen from './screens/EnterPinScreen';
+import CreateAccountScreen from './screens/CreateAccountScreen';
+import UserPageScreen from './screens/UserPageScreen';
+import ContactScreen from './screens/ContactScreen';
+import CalendarScreen from './screens/CalendarScreen';
+import InfoPageScreen from './screens/InfoPageScreen';
+import StartGameScreen from './screens/StartGameScreen';
+import GameActiveScreen from './screens/GameActiveScreen';
+import GameLeaderBoardScreen from './screens/GameLeaderBoardScreen';
+import GameScoreScreen from './screens/GameScoreScreen';
+
 export default function App() {
   useEffect(() => {
     setLocalStore(store);
